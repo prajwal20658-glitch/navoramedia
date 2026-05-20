@@ -9,6 +9,21 @@ async function startServer() {
 
   // Middleware to parse JSON bodies
   app.use(express.json());
+  
+  // ✅ robots.txt - allows Google to crawl your site
+app.get("/robots.txt", (req, res) => {
+  res.type("text/plain");
+  res.send("User-agent: *\nAllow: /\nSitemap: https://navoramedia.in/sitemap.xml");
+});
+
+// ✅ sitemap.xml - tells Google your pages
+app.get("/sitemap.xml", (req, res) => {
+  res.type("application/xml");
+  res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://navoramedia.in/</loc></url>
+</urlset>`);
+});
 
   // API Routes
   app.post("/api/contact", async (req, res) => {
