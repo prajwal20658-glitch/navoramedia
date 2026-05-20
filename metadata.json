@@ -1,0 +1,6 @@
+{
+  "name": "NavoraMedia",
+  "description": "Premium performance marketing agency website for Google Ads, Meta Ads, and SEO.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
