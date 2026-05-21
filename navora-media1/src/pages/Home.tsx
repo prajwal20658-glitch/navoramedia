@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, Zap, Target, Sparkles, TrendingUp, Filter, Users, Star, ClipboardCheck, ArrowUpRight } from "lucide-react";
 import { TESTIMONIALS, SERVICES } from "../data";
 
@@ -32,6 +33,10 @@ export default function Home({ onNavigate, openAuditModal }: HomeProps) {
 
   return (
     <div id="home-page-container" className="pt-24 space-y-24">
+      <Helmet>
+  <title>Navora Media | Elite Performance Marketing Agency Bangalore</title>
+  <meta name="description" content="Navora Media is Bangalore's leading performance marketing agency delivering high-ROAS Meta Ads, Google Ads optimization, organic SEO and dental patient acquisition programs." />
+</Helmet>
       
       {/* SECTION 1: HERO CONTAINER */}
       <section id="hero" className="relative min-h-[85vh] flex items-center justify-center px-4 overflow-hidden bg-[#F3EEE7]">
