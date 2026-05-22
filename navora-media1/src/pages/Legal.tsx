@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState } from "react";
 import { Shield, FileText } from "lucide-react";
 
@@ -11,6 +12,10 @@ export default function Legal({ initialTab = "privacy", onNavigate }: LegalProps
 
   return (
     <div id="legal-page-container" className="pt-24 space-y-12 pb-20 max-w-4xl mx-auto px-4">
+      <Helmet>
+  <title>{activeTab === "privacy" ? "Privacy Policy" : "Terms & Conditions"} | Navora Media</title>
+  <meta name="description" content={activeTab === "privacy" ? "Read Navora Media's privacy policy to understand how we collect, use and protect your personal information." : "Read Navora Media's terms and conditions of service for our performance marketing agency in Bangalore."} />
+</Helmet>
       
       {/* SELECTION TABS */}
       <section className="flex justify-center space-x-4 border-b border-dark-brown/10 pb-4 pt-10">
