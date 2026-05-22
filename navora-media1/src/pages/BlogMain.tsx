@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState } from "react";
 import { BookOpen, Calendar, ArrowRight, Star, Search, Sliders } from "lucide-react";
 import { BLOGS } from "../data";
@@ -18,6 +19,10 @@ export default function BlogMain({ onNavigate, openAuditModal }: BlogMainProps) 
 
   return (
     <div id="blog-main-container" className="pt-24 space-y-16 pb-20">
+      <Helmet>
+  <title>Blog | Digital Marketing Tips & Insights - Navora Media</title>
+  <meta name="description" content="Read expert tips on Meta Ads, Google Ads, SEO, Lead Generation and Dental Marketing from Navora Media's practicing media buyers in Bangalore." />
+</Helmet>
       
       {/* HEADER HERO */}
       <section id="blog-hero" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 pt-10">
