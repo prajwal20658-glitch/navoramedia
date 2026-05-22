@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { TrendingUp, UserCheck, ArrowRight, ShieldAlert, HeartHandshake } from "lucide-react";
 import { CASE_STUDIES } from "../data";
 
@@ -9,6 +10,10 @@ interface CaseStudiesMainProps {
 export default function CaseStudiesMain({ onNavigate, openAuditModal }: CaseStudiesMainProps) {
   return (
     <div id="case-studies-main-container" className="pt-24 space-y-16 pb-20">
+      <Helmet>
+  <title>Case Studies | Real Results - Navora Media</title>
+  <meta name="description" content="See how Navora Media helped businesses achieve 5.1x ROAS, reduce CPA by 38% and scale revenue with Meta Ads, Google Ads and SEO strategies in Bangalore." />
+</Helmet>
       
       {/* HEADER HERO */}
       <section id="case-studies-hero" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 pt-10">
