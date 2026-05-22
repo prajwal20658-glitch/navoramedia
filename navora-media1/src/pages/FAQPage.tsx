@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState, useEffect } from "react";
 import { ChevronDown, Sliders, Sparkles, MessageCircleCode } from "lucide-react";
 import { FAQS } from "../data";
@@ -19,6 +20,10 @@ export default function FAQPage({ onNavigate, openAuditModal }: FAQPageProps) {
 
   return (
     <div id="faq-page-container" className="pt-24 space-y-16 pb-20 max-w-4xl mx-auto px-4">
+      <Helmet>
+  <title>FAQ | Frequently Asked Questions - Navora Media</title>
+  <meta name="description" content="Get answers to common questions about Navora Media's Meta Ads, Google Ads, SEO, Lead Generation and Dental Marketing services in Bangalore." />
+</Helmet>
       
       {/* HEADER SECTION */}
       <section className="text-center space-y-4 pt-10">
