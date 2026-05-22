@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Facebook, Search, TrendingUp, Filter, ShieldCheck, Instagram, ArrowRight, CheckCircle, Smartphone, Sliders } from "lucide-react";
 import { SERVICES } from "../data";
 
@@ -28,6 +29,10 @@ export default function ServicesMain({ onNavigate, openAuditModal }: ServicesMai
 
   return (
     <div id="services-main-container" className="pt-24 space-y-24 pb-20">
+      <Helmet>
+  <title>Our Services | Meta Ads, Google Ads & SEO - Navora Media</title>
+  <meta name="description" content="Explore our performance marketing services including Meta Ads, Google Ads, SEO, Lead Generation and Dental Marketing in Bangalore." />
+</Helmet>
       
       {/* INTRO TITLE HERO */}
       <section id="services-hero" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 pt-10">
