@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState } from "react";
 import { ClipboardCheck, Target, ArrowRight, CheckCircle, Sparkles } from "lucide-react";
 
@@ -75,6 +76,10 @@ export default function FreeAudit({ onNavigate, openAuditModal }: FreeAuditProps
 
   return (
     <div id="free-audit-landing-container" className="pt-24 space-y-20 pb-20">
+      <Helmet>
+  <title>Free Marketing Audit | Navora Media Bangalore</title>
+  <meta name="description" content="Get a free 12-page marketing audit from Navora Media. We analyse your Meta Ads, Google Ads and SEO and deliver actionable insights. No obligation." />
+</Helmet>
       
       {/* LANDING TITLE HERO */}
       <section className="relative py-12 max-w-5xl mx-auto px-4 text-center space-y-6">
