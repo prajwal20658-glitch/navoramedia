@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useState, FormEvent } from "react";
 import { Mail, Phone, MapPin, CheckCircle, Clock, Calendar, ArrowRight, Instagram } from "lucide-react";
 
@@ -63,6 +64,10 @@ export default function Contact({ onNavigate, openAuditModal }: ContactProps) {
 
   return (
     <div id="contact-page-container" className="pt-24 space-y-20 pb-20">
+      <Helmet>
+  <title>Contact Us | Navora Media Bangalore</title>
+  <meta name="description" content="Get in touch with us for a free marketing audit. Bangalore's leading performance marketing agency for Meta Ads, Google Ads and SEO." />
+</Helmet>
       
       {/* HEADER TITLE SUMMARY */}
       <section id="contact-hero" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 pt-10">
