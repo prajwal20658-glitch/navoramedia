@@ -9,7 +9,6 @@ interface ServicesMainProps {
 
 export default function ServicesMain({ onNavigate, openAuditModal }: ServicesMainProps) {
   
-  // Icon mapper helper
   const getSvcIcon = (name: string) => {
     switch (name) {
       case "Facebook":
@@ -29,21 +28,135 @@ export default function ServicesMain({ onNavigate, openAuditModal }: ServicesMai
 
   return (
     <div id="services-main-container" className="pt-24 space-y-24 pb-20">
+
       <Helmet>
-  <title>Our Services | Meta Ads, Google Ads & SEO - Navora Media</title>
-  <meta name="description" content="Explore our performance marketing services including Meta Ads, Google Ads, SEO, Lead Generation and Dental Marketing in Bangalore." />
-</Helmet>
-      
+        {/* ── Title & Meta ── */}
+        <title>Meta Ads, Google Ads & SEO Services in Bangalore | Navora Media</title>
+        <meta
+          name="description"
+          content="Navora Media offers Meta Ads, Google Ads, SEO, Lead Generation & Dental Marketing services in Bangalore. ROI-first performance marketing built for growth."
+        />
+        <link rel="canonical" href="https://navoramedia.in/services" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+
+        {/* ── Open Graph ── */}
+        <meta property="og:title" content="Meta Ads, Google Ads & SEO Services in Bangalore | Navora Media" />
+        <meta property="og:description" content="Navora Media offers Meta Ads, Google Ads, SEO, Lead Generation & Dental Marketing services in Bangalore. ROI-first performance marketing built for growth." />
+        <meta property="og:image" content="https://navoramedia.in/og-image.jpg" />
+        <meta property="og:url" content="https://navoramedia.in/services" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Navora Media" />
+
+        {/* ── Twitter Card ── */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Meta Ads, Google Ads & SEO Services in Bangalore | Navora Media" />
+        <meta name="twitter:description" content="Navora Media offers Meta Ads, Google Ads, SEO, Lead Generation & Dental Marketing services in Bangalore. ROI-first performance marketing built for growth." />
+        <meta name="twitter:image" content="https://navoramedia.in/og-image.jpg" />
+        <meta name="twitter:site" content="@navoramedia" />
+
+        {/* ── JSON-LD: Service + LocalBusiness ── */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "LocalBusiness",
+                "@id": "https://navoramedia.in/#business",
+                "name": "Navora Media",
+                "url": "https://navoramedia.in",
+                "logo": "https://navoramedia.in/og-image.jpg",
+                "image": "https://navoramedia.in/og-image.jpg",
+                "description": "Performance marketing agency in Bangalore offering Meta Ads, Google Ads, SEO, and Dental Marketing services.",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Bangalore",
+                  "addressLocality": "Bangalore",
+                  "addressRegion": "Karnataka",
+                  "postalCode": "560001",
+                  "addressCountry": "IN"
+                },
+                "telephone": "+919880552901",
+                "email": "contact@navoramedia.in",
+                "areaServed": "Bangalore"
+              },
+              {
+                "@type": "Service",
+                "serviceType": "Performance Marketing",
+                "provider": { "@id": "https://navoramedia.in/#business" },
+                "name": "Performance Marketing Services Bangalore",
+                "description": "Meta Ads, Google Ads, SEO, Lead Generation, Dental Marketing and Social Media marketing services in Bangalore.",
+                "areaServed": "Bangalore",
+                "url": "https://navoramedia.in/services",
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Digital Marketing Services",
+                  "itemListElement": [
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Meta Ads Agency Bangalore",
+                        "url": "https://navoramedia.in/services/meta-ads"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Google Ads Agency Bangalore",
+                        "url": "https://navoramedia.in/services/google-ads"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "SEO Agency Bangalore",
+                        "url": "https://navoramedia.in/services/seo"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Dental Marketing Agency Bangalore",
+                        "url": "https://navoramedia.in/services/dental-marketing"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Lead Generation Bangalore",
+                        "url": "https://navoramedia.in/services/lead-generation"
+                      }
+                    },
+                    {
+                      "@type": "Offer",
+                      "itemOffered": {
+                        "@type": "Service",
+                        "name": "Social Media Marketing Bangalore",
+                        "url": "https://navoramedia.in/services/social-media"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        `}</script>
+      </Helmet>
+
       {/* INTRO TITLE HERO */}
       <section id="services-hero" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 pt-10">
         <span className="text-xs font-bold uppercase tracking-widest text-[#FF8C2A]">
           OUR REVENUE ACQUISITION SUITE
         </span>
         <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-dark-brown">
-          Scientific Growth Modules Built for ROI
+          Performance Marketing Services in Bangalore Built for ROI
         </h1>
         <p className="text-sm sm:text-base text-dark-brown/70 max-w-2xl mx-auto leading-relaxed">
-          Explore our fully articulated execution pillars. Every service is backed by rigorous target telemetry and zero guess-work architectures.
+          Navora Media offers Meta Ads, Google Ads, SEO, Lead Generation, and Dental Marketing services in Bangalore — each backed by rigorous data telemetry and zero guesswork execution.
         </p>
       </section>
 
@@ -73,7 +186,6 @@ export default function ServicesMain({ onNavigate, openAuditModal }: ServicesMai
                   {svc.description}
                 </p>
 
-                {/* Sub features preview checklist */}
                 <div className="space-y-2 pt-2">
                   <p className="text-[10px] text-warm-gray font-bold uppercase tracking-wider font-sans">Primary Components:</p>
                   <ul className="space-y-1.5 text-xs text-dark-brown/70">
@@ -108,7 +220,9 @@ export default function ServicesMain({ onNavigate, openAuditModal }: ServicesMai
       <section id="services-audit-promo" className="max-w-5xl mx-auto px-4">
         <div className="p-8 sm:p-12 rounded-3xl bg-white border border-dark-brown/10 flex flex-col md:flex-row justify-between items-center gap-8 shadow-sm">
           <div className="space-y-3 text-left max-w-xl">
-            <h3 className="font-serif text-2xl font-bold text-dark-brown">Unsure of Your Ideal Mix?</h3>
+            <h2 className="font-serif text-2xl font-bold text-dark-brown">
+              Not Sure Which Bangalore Marketing Service Fits You?
+            </h2>
             <p className="text-xs text-dark-brown/70 leading-relaxed">
               We don't recommend products blind. Our analysts review your historical Meta spend patterns, search rankings, and click-conversion parameters to determine your high-yield marketing formula.
             </p>
