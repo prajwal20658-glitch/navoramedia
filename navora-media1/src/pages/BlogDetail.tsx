@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Clock, Calendar, Mail, ArrowRight, Share2, Clipboard } from "lucide-react";
 import { BLOGS } from "../data";
 
@@ -46,8 +47,7 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
       setSubscribing(false);
     }
   };
-  
-  // Find match
+
   const post = BLOGS.find((b) => b.id === blogPostId);
 
   useEffect(() => {
@@ -68,16 +68,112 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
     );
   }
 
-  // Parse custom styled text snippets for mockup markdown parsing
+  const canonicalUrl = `https://navoramedia.in/blog/${post.id}`;
+  const ogImage = "https://navoramedia.in/og-image.jpg";
+  const seoTitle = (post as any).seoTitle || `${post.title} | Navora Media`;
+  const seoDescription = (post as any).seoDescription || post.summary;
+
+  // Render bold (**text**) inside paragraph text
+  const renderInline = (text: string) => {
+    const parts = text.split(/\*\*(.*?)\*\*/g);
+    return parts.map((part, i) =>
+      i % 2 === 1
+        ? <strong key={i} className="font-bold text-dark-brown">{part}</strong>
+        : part
+    );
+  };
+
   const formattedSections = post.contentMarkdown.split("\n\n");
 
   return (
     <div id={`blog-${blogPostId}`} className="pt-24 space-y-16 pb-20">
-      
+
+      <Helmet>
+        {/* ── Title & Meta ── */}
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+
+        {/* ── Open Graph ── */}
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Navora Media" />
+
+        {/* ── Twitter Card ── */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:site" content="@navoramedia" />
+
+        {/* ── JSON-LD: Article ── */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": post.title,
+          "description": seoDescription,
+          "image": ogImage,
+          "url": canonicalUrl,
+          "datePublished": post.date,
+          "dateModified": post.date,
+          "author": {
+            "@type": "Person",
+            "name": post.author.name,
+            "jobTitle": post.author.role
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Navora Media",
+            "url": "https://navoramedia.in",
+            "logo": {
+              "@type": "ImageObject",
+              "url": ogImage
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+          },
+          "keywords": (post as any).tags?.join(", ") || post.category,
+          "articleSection": post.category,
+          "inLanguage": "en-IN"
+        })}</script>
+
+        {/* ── JSON-LD: BreadcrumbList ── */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://navoramedia.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://navoramedia.in/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": post.title,
+              "item": canonicalUrl
+            }
+          ]
+        })}</script>
+      </Helmet>
+
       {/* HEADER SECTION METADATA */}
       <section className="relative py-12 bg-gradient-to-b from-[#1A120E] to-dark-brown border-b border-warm-gray/10 overflow-hidden">
         <div className="absolute top-1/3 right-10 w-72 h-72 bg-[#FF8C2A]/5 rounded-full blur-3xl pointer-events-none" />
-        
+
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <button
             onClick={() => onNavigate("blog")}
@@ -94,7 +190,7 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
             <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-soft-beige leading-tight">
               {post.title}
             </h1>
-            
+
             {/* Author layout */}
             <div className="flex flex-wrap items-center gap-4 text-xs text-soft-beige/50 pt-4">
               <div className="flex items-center space-x-2.5">
@@ -105,7 +201,7 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h6 className="font-bold text-soft-beige">{post.author.name}</h6>
+                  <p className="font-bold text-soft-beige">{post.author.name}</p>
                   <p className="text-[10px] uppercase font-mono">{post.author.role}</p>
                 </div>
               </div>
@@ -120,45 +216,46 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
                 <span>{post.readTime}</span>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
       {/* ARTICLE ESSAY CONTENTS */}
       <article className="max-w-3xl mx-auto px-4 grid grid-cols-1 gap-8">
-        
+
         <div className="prose text-dark-brown text-sm sm:text-base leading-relaxed font-light space-y-6">
           {formattedSections.map((section, idx) => {
-            if (section.startsWith("##")) {
-              return (
-                <h2 key={idx} className="font-serif text-2xl sm:text-3xl font-bold text-dark-brown pt-4 border-b border-dark-brown/10 pb-2">
-                  {section.replace("##", "").trim()}
-                </h2>
-              );
-            }
+            // H3 must be checked before H2 (starts with ###)
             if (section.startsWith("###")) {
               return (
                 <h3 key={idx} className="font-serif text-xl font-bold text-[#FF8C2A] pt-2">
-                  {section.replace("###", "").trim()}
+                  {section.replace(/^###\s*/, "").trim()}
                 </h3>
               );
             }
-            if (section.startsWith("1.") || section.startsWith("-")) {
-              const lines = section.split("\n");
+            if (section.startsWith("##")) {
+              return (
+                <h2 key={idx} className="font-serif text-2xl sm:text-3xl font-bold text-dark-brown pt-4 border-b border-dark-brown/10 pb-2">
+                  {section.replace(/^##\s*/, "").trim()}
+                </h2>
+              );
+            }
+            if (section.startsWith("1.") || section.startsWith("- ")) {
+              const lines = section.split("\n").filter((l) => l.trim());
               return (
                 <ul key={idx} className="space-y-2.5 pl-5 list-disc text-xs sm:text-sm">
                   {lines.map((line, i) => (
                     <li key={i} className="leading-relaxed">
-                      {line.replace(/^(\d+\.|\-)\s*/, "").trim()}
+                      {renderInline(line.replace(/^(\d+\.|-)\s*/, "").trim())}
                     </li>
                   ))}
                 </ul>
               );
             }
+            if (section.trim() === "") return null;
             return (
               <p key={idx} className="leading-relaxed">
-                {section}
+                {renderInline(section)}
               </p>
             );
           })}
@@ -166,7 +263,9 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
 
         {/* Newsletter Inline Subscription form */}
         <div className="p-8 rounded-2xl bg-white border border-dark-brown/10 shadow-sm space-y-4 my-10">
-          <h4 className="font-serif text-lg font-bold text-dark-brown">Receive Raw Media Audits and Testing Strategies</h4>
+          <h2 className="font-serif text-lg font-bold text-dark-brown">
+            Receive Raw Media Audits and Testing Strategies
+          </h2>
           <p className="text-xs text-warm-gray">
             Join 4,200 growth managers who receive our double-blind conversion case findings directly in their inbox. Absolutely no spam or sales calls.
           </p>
@@ -175,10 +274,7 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
               ✓ Strategic subscription activated successfully. Welcome to the analytical briefing list!
             </p>
           ) : (
-            <form
-              onSubmit={handleSubscribe}
-              className="flex flex-col sm:flex-row gap-2"
-            >
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 required
@@ -207,7 +303,7 @@ export default function BlogDetail({ blogPostId, onNavigate, openAuditModal }: B
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Return to Essay Listings</span>
           </button>
-          
+
           <button
             onClick={openAuditModal}
             className="px-5 py-2.5 bg-dark-brown hover:bg-dark-brown/90 border border-dark-brown text-soft-beige rounded uppercase tracking-wider font-bold transition-all"
