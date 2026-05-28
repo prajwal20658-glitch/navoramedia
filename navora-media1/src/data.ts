@@ -512,7 +512,8 @@ Schema markup — specifically LocalBusiness schema with Dentist type — helps 
 For Google Business Profile optimisation and review generation, meaningful improvement in Map Pack rankings typically occurs within 60–90 days. For website on-page SEO and blog content, organic ranking improvements begin showing within 3–6 months, with significant traffic growth at 6–12 months.
 
 At Navora Media, we specialise in dental marketing for Bangalore clinics — combining Google Ads for immediate patient flow with SEO for long-term dominance. Request a free dental marketing audit and we will review your GBP, website, and local keyword rankings within 24 hours.`
-];
+  },
+    ];
 
 export const FAQS: FAQItem[] = [
   {
