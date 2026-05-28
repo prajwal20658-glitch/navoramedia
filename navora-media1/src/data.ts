@@ -358,53 +358,160 @@ Stop building 50 tiny ad sets based on specific interest parameters. Here is our
 3. Keep the winning creatives from the Sandbox flowing into your scale campaigns. This creates an uninterrupted loop of high-ROAS creative updates before burnout happens.`
   },
   {
-    id: "google-pmax-secrets",
-    title: "Demystifying Google Performance Max: How to Prevent Bidding Leaks and Fuel Asset Groups",
-    category: "Google Ads",
-    date: "April 28, 2026",
-    readTime: "6 min read",
-    author: {
-      name: "Radhika K. Rao",
-      role: "Director of Search Performance",
-      avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80"
-    },
-    summary: "Performance Max automates campaign distributions, but it easily bleeds spend on low-value searches. Learn the exact structures to reclaim control from the Google algorithm.",
-    tags: ["Google Ads", "Performance Max", "PMax", "Search Engine Marketing"],
-    contentMarkdown: `## Why Standard PMax Underperforms
-Google's Performance Max is a powerful neural-network tool, but if given raw keys, it chooses low-resistance channels. By default, it prioritizes bidding on your own brand searches to pad its conversion metrics, or distributes blurry assets onto junk mobile display placements.
-
-### Steps to Regain PMax Command
-1. **Deploy Account Negative Lists**: Ask Google reps or set account restrictions to block brand keywords. This forces PMax to find novel prospecting traffic instead of taking credit for users already searching for you.
-2. **Separate Asset Groups by Topical Content**: Do not mix generic models, implant services, and low-cost items in a single collection. Build specific Asset Groups with exact matching headings, titles, long descriptions, and hero visuals matching a single intent set.
-3. **Turn Off URL Expansion (Selective Rules)**: Google allows URL expansion by default. If you have non-transaction columns (like regulatory forms or old updates), prevent Google from dropping landing ad traffic onto them by filtering them out explicitly.`
+  id: "google-pmax-secrets",
+  title: "Google Performance Max Secrets: What Most Agencies in Bangalore Won't Tell You",
+  category: "Google Ads",
+  date: "April 28, 2026",
+  readTime: "11 min read",
+  seoTitle: "Google Performance Max Secrets for Bangalore Businesses | Navora Media",
+  seoDescription: "Unlock Google PMax campaign secrets that drive real ROI. Navora Media shares advanced Performance Max strategies for Bangalore businesses. Read the guide.",
+  author: {
+    name: "Radhika K. Rao",
+    role: "Director of Search Performance",
+    avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80"
   },
+  summary: "Google Performance Max campaigns promise automation and reach — but without the right asset structure, audience signals, and exclusion strategy, they silently drain your budget. Here is what actually works.",
+  tags: ["Google Ads", "Performance Max", "PMax", "Search Engine Marketing"],
+  contentMarkdown: `## Google Performance Max Campaigns: The Complete Guide for Bangalore Advertisers
+
+Google Performance Max (PMax) is the most misunderstood campaign type in Google Ads today. Launched as the successor to Smart Shopping and Local campaigns, PMax promises to serve your ads across all of Google's channels — Search, Display, YouTube, Gmail, Maps, and Discover — using a single campaign structure. For businesses in Bangalore, that sounds like an efficient, scalable solution. In practice, without the right configuration, it is one of the fastest ways to burn your ad budget with nothing to show for it.
+
+At Navora Media, we have managed Performance Max campaigns across industries — from e-commerce retailers in Koramangala to dental clinics in Whitefield. This guide shares everything we have learned about what actually makes PMax work, and what most agencies either do not know or will not tell you.
+
+## What Is Google Performance Max and How Does It Work?
+
+Performance Max is a goal-based campaign type that uses Google's machine learning to optimise bids, targeting, and ad placements in real time. You provide the inputs — creative assets, audience signals, budget, and conversion goals — and Google's algorithm determines where, when, and to whom your ads are shown.
+
+The campaign pulls from six Google inventory channels simultaneously. This means a single PMax campaign can reach a user who is searching on Google, watching YouTube, browsing a website in the Display Network, checking Gmail, or using Google Maps — all within the same campaign.
+
+The appeal is obvious. But the danger is equally real: because PMax consolidates everything behind Google's automation, advertisers who do not understand how to structure inputs correctly lose visibility and control over where their money is going.
+
+## Why Most PMax Campaigns Underperform
+
+The number one reason Performance Max campaigns fail is poor asset group structure. Many advertisers — and unfortunately, many agencies — create a single asset group with a generic mix of headlines, descriptions, and images, then let Google run. This approach produces mediocre results across all channels because the algorithm has no thematic direction.
+
+The second most common mistake is ignoring audience signals. Audience signals are not targeting — Google can go beyond them — but they give the algorithm a starting point. Without strong audience signals built from your first-party data, customer match lists, or high-intent in-market segments, PMax spends weeks in a learning phase burning budget on irrelevant placements.
+
+The third mistake is running PMax alongside standard Search campaigns without proper campaign-level exclusions. Without brand keyword exclusions at the campaign level and careful management of search term overlap, PMax will cannibalise your branded traffic — and take credit for those conversions, artificially inflating its reported performance.
+
+## Asset Group Structure: The Foundation of a High-Performing PMax Campaign
+
+Think of asset groups the same way you think of ad groups in standard Search campaigns — each one should represent a tightly themed cluster of products, services, or audience segments. For a Bangalore-based dental clinic, you might build separate asset groups for dental implants, teeth whitening, orthodontic treatments, and emergency dental care. Each group gets its own headlines, descriptions, images, and videos tailored to that specific service.
+
+For each asset group, provide the maximum number of assets Google allows: 15 headlines, 5 descriptions, at least 5 landscape images, 5 square images, and ideally 1–2 videos. Campaigns with video assets consistently outperform those without, because YouTube inventory is only accessible when video is provided.
+
+## Audience Signals: How to Give Google the Right Starting Point
+
+The most powerful audience signal you can provide is a Customer Match list — a list of your existing customers uploaded as a hashed data file. If you have an email list of past patients, customers, or leads, upload it. Google uses this list to find similar users and to exclude existing customers from acquisition campaigns if needed.
+
+After Customer Match, add your website remarketing audiences — all website visitors, specific page visitors, and cart abandoners if applicable. Finally, layer in relevant in-market segments like "Business Services" and "Advertising and Marketing Services."
+
+## Search Term Controls: Protecting Your Branded Traffic
+
+By default, Performance Max will bid on your own brand name. Apply brand exclusions at the campaign level in PMax so your branded traffic continues to flow through your standard Search campaigns at a lower CPC, and PMax focuses exclusively on net-new acquisition.
+
+## Conversion Goals: Setting Up PMax for What Actually Matters
+
+Ensure you have conversion tracking set up for every meaningful action: form submissions, phone call clicks, WhatsApp link clicks, and appointment bookings. Assign conversion values where possible. If a dental implant inquiry is worth ten times more than a teeth cleaning inquiry, assign values accordingly.
+
+## Budget Strategy: How Much to Spend on PMax
+
+A practical starting budget for Bangalore SMBs is a minimum of ₹500–₹800 per day for PMax. Start with Maximise Conversions to let the algorithm collect data, then transition to Target CPA or Target ROAS after 30–50 conversions.
+
+## Reporting and Performance Analysis
+
+Use the Asset Group performance report to see which creative combinations are rated "Best," "Good," or "Low." Pause or replace assets rated "Low" regularly. For placement-level visibility, check the Placement Report under Insights.
+
+## Is Performance Max Right for Your Bangalore Business?
+
+Asset group structure, audience signals, brand exclusions, and conversion tracking accuracy are the four pillars that separate profitable PMax campaigns from expensive ones. At Navora Media, every Google Ads campaign we manage is built on these principles. Request a free audit below.`
+},
   {
-    id: "dental-seo-guide",
-    title: "Local SEO Blueprints for Orthodontic and Dental Centers: Dominating the Google Map Pack",
-    category: "Dental Marketing",
-    date: "May 10, 2026",
-    readTime: "10 min read",
-    author: {
-      name: "Marcus Chen, DDS & Rohan Lal",
-      role: "Specialized Healthcare partner & SEO VP",
-      avatarUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=120&h=120&q=80"
-    },
-    summary: "90% of dental patients search within a 15-minute commute path. Discover the exact schema additions, map listing configurations, and local citations to dominate orthopedic terms.",
-    tags: ["Local SEO", "Dental Marketing", "Google Maps Pack", "Dental Clinic"],
-    contentMarkdown: `## The 3 Pillars of Dental Map Dominance
-When a prospective patient breaks a crown or decides they want Invisalign, they search 'orthodontics near me'. The top 3 map positions occupy almost 60% of all local transaction call volume.
+  id: "dental-seo-guide",
+  title: "Dental SEO Guide for Bangalore Clinics: How to Fill Your Appointment Book Through Google",
+  category: "Dental Marketing",
+  date: "May 10, 2026",
+  readTime: "13 min read",
+  seoTitle: "Dental SEO Guide Bangalore | Rank Your Dental Clinic on Google – Navora Media",
+  seoDescription: "Complete dental SEO guide for Bangalore clinics. Learn how to rank on Google Maps, target local keywords, and fill your appointment book. Expert guide by Navora Media.",
+  author: {
+    name: "Marcus Chen, DDS & Rohan Lal",
+    role: "Specialized Healthcare partner & SEO VP",
+    avatarUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=120&h=120&q=80"
+  },
+  summary: "Dental SEO in Bangalore is more competitive than ever — but most clinics are making the same five mistakes. This complete guide covers Google Business Profile optimisation, local keyword targeting, on-page SEO, and content strategy to help your clinic rank and get more appointments.",
+  tags: ["Local SEO", "Dental Marketing", "Google Maps Pack", "Dental Clinic"],
+  contentMarkdown: `## Dental SEO in Bangalore: Why Most Clinics Are Invisible on Google
 
-### 1. The LocalBusiness JSON-LD Injection
-Your dental website requires precise clinical structured schema elements. Adding these structures tells search engines:
-- **Your Exact Geographic Coordinates** (Lat/Long matches your GMB pins exactly).
-- **Procedures Offered** (Invisalign orthdontics, implant dentistry, root canals).
-- **Correct NAP Fields** (Name, Address, Phone Number matches your Google Business profile consistently across the web).
+There are over 4,000 registered dental clinics in Bangalore. When a prospective patient searches "dentist near me" or "dental implants Bangalore," Google shows three clinics in the Map Pack at the top of the results — and the rest are effectively invisible. The difference between those three clinics and everyone else is rarely the quality of their dentistry. It is almost always the quality of their SEO.
 
-### 2. Clinical Reputation Generation Loops
-Google's local ranking directly weights search volume and count rating.
-- We implement automated text hooks: as soon as a hygienist flags a procedure complete in Dentrix or clinic software, our system fires a frictionless SMS link: *'Thank you for visiting Radiant Clinics. How did Dr. Marcus do? Share a 3-second review here.'*
-- This workflow collects premium, multi-sentence reviews with procedure keywords (implant, smile cosmetic, crowns), driving map pack rankings upward.`
-  }
+Dental SEO is the process of making your clinic appear prominently in Google's organic search results and Google Maps listings for the searches that matter most to your business. Done correctly, it is the single highest-ROI marketing investment a dental clinic in Bangalore can make.
+
+## Understanding How Patients Search for Dentists in Bangalore
+
+There are three categories of search behaviour for Bangalore dental queries.
+
+The first is proximity-based searches: "dentist near me," "dental clinic near Indiranagar," "best dentist in Koramangala." These searches have extremely high local intent and are dominated by the Google Map Pack. Winning these requires a well-optimised Google Business Profile backed by strong review velocity and local citation consistency.
+
+The second is treatment-specific searches: "dental implants Bangalore," "teeth whitening Bangalore cost," "braces treatment Bangalore," "root canal specialist Whitefield." These are high-commercial-intent searches where patients have already identified what they need and are comparing providers. These are best won through dedicated service pages with strong on-page SEO.
+
+The third is informational searches: "how long does dental implant procedure take," "dental implant cost in Bangalore 2026," "is teeth whitening safe for sensitive teeth." A dental blog targeting these queries builds trust and captures patients before they have made a decision.
+
+## Google Business Profile: The Foundation of Dental Local SEO
+
+Your Google Business Profile (GBP) is the single most important SEO asset for a dental clinic. It determines whether you appear in the Map Pack — the three local results that appear above organic listings for location-based searches.
+
+An optimised GBP starts with complete and accurate information. Every field matters: clinic name, address, phone number, website URL, hours of operation, appointment booking link, and service areas. Inconsistency between your GBP and your website — even minor differences like "Road" versus "Rd" — sends negative signals to Google's local algorithm.
+
+Your primary category should be "Dentist." Add secondary categories for every specialty: "Dental Implants Provider," "Orthodontist," "Cosmetic Dentist," "Pediatric Dentist." These secondary categories directly influence which treatment-specific searches trigger your GBP listing.
+
+The Services section of your GBP is critically underused by most Bangalore clinics. Add every service you offer with a detailed description. Google indexes this content and uses it to match your listing to relevant search queries.
+
+GBP Posts — short updates published directly to your profile — are another underutilised tool. Post weekly updates about offers, new equipment, or before-and-after cases. Active GBP profiles receive preferential treatment in Google's local ranking algorithm.
+
+## Google Reviews: The Most Powerful Local Ranking Signal
+
+Reviews are the most significant ranking factor in Google's local search algorithm. A dental clinic with 200 reviews averaging 4.8 stars will almost always outrank a clinic with 20 reviews averaging 4.9 stars, everything else being equal.
+
+Most dental clinics in Bangalore have between 20 and 80 Google reviews. The clinics dominating the Map Pack typically have 150 or more. The most effective method is the post-appointment review request — after a successful appointment, send an SMS with a direct link to your Google review page. Response rates on same-day SMS review requests are consistently 15–25%.
+
+Always respond to every review — positive and negative. Your responses are indexed by Google and read by prospective patients. A professional, empathetic response to a negative review often does more for your reputation than the positive reviews themselves.
+
+## Website On-Page SEO: Building Pages That Rank for Treatment Searches
+
+Every major service your clinic offers should have a dedicated, optimised page — not a paragraph on a general "Services" page, but a full standalone page targeting the specific keyword patients use when searching for that treatment.
+
+For a comprehensive dental clinic in Bangalore, this means individual pages for: dental implants, teeth whitening, braces and orthodontics, root canal treatment, dental crowns and bridges, pediatric dentistry, gum disease treatment, dental veneers, and emergency dental care.
+
+Each service page should be structured around a primary keyword — for example, "Dental Implants Bangalore" for your implants page. The primary keyword should appear in the title tag, H1, meta description, first paragraph, at least two H2 subheadings, the URL slug, and the alt text of at least one image.
+
+Google's Helpful Content system rewards pages that demonstrate E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness). Write with clinical accuracy, showcase before-and-after cases, include doctor credentials, and provide specific information about procedures, recovery times, and costs. Aim for 1,000–1,500 words per service page.
+
+## Local Keyword Strategy: Targeting Bangalore Neighbourhoods
+
+Rather than competing for broad terms like "dental clinic Bangalore," dominate more specific, lower-competition searches by targeting the areas your patients come from. A page optimised for "dentist in HSR Layout" faces significantly less competition than "dentist Bangalore" — and patients searching with neighbourhood-level specificity are typically further along in their decision and more likely to convert.
+
+A clinic with 8–10 neighbourhood-specific landing pages targeting its service radius effectively multiplies its local search visibility without needing to outrank large multi-branch chains.
+
+## Dental Blog Content: Capturing Top-of-Funnel Patients
+
+A regularly updated dental blog generates organic traffic from informational searches and signals to Google that your website is an active, authoritative source of dental information.
+
+The most valuable blog topics directly address questions patients have before booking: dental implant cost in Bangalore, how to choose a dentist in Bangalore, teeth whitening options compared, what to expect during a root canal, and signs you need to see a dentist urgently.
+
+Each blog post should target a specific informational keyword, include a clear answer in the first paragraph for featured snippet eligibility, and close with a call-to-action linking to the relevant service page. Publish at minimum one post per month.
+
+## Technical SEO for Dental Clinic Websites
+
+Over 70% of dental search queries in Bangalore are performed on mobile devices. A website that takes more than 3 seconds to load on mobile loses a significant portion of potential patients. Use Google's PageSpeed Insights to identify and fix speed issues.
+
+Schema markup — specifically LocalBusiness schema with Dentist type — helps Google understand your clinic's nature, location, hours, and services. This structured data can trigger rich results in Google's search listings, increasing click-through rates significantly.
+
+## How Long Does Dental SEO Take to Show Results?
+
+For Google Business Profile optimisation and review generation, meaningful improvement in Map Pack rankings typically occurs within 60–90 days. For website on-page SEO and blog content, organic ranking improvements begin showing within 3–6 months, with significant traffic growth at 6–12 months.
+
+At Navora Media, we specialise in dental marketing for Bangalore clinics — combining Google Ads for immediate patient flow with SEO for long-term dominance. Request a free dental marketing audit and we will review your GBP, website, and local keyword rankings within 24 hours.`
 ];
 
 export const FAQS: FAQItem[] = [
