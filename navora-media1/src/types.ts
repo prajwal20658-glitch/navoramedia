@@ -40,6 +40,8 @@ export interface BlogPost {
   summary: string;
   contentMarkdown: string; // Detailed structural copy
   tags: string[];
+  seoTitle?: string;
+seoDescription?: string;
 }
 
 export interface FAQItem {
