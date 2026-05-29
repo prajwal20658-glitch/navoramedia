@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ParticleBackground from "./components/ParticleBackground";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AuditFormModal from "./components/AuditFormModal";
@@ -309,7 +310,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-soft-beige text-dark-brown flex flex-col justify-between selection:bg-burnt-orange selection:text-white">
+  <div className="min-h-screen text-dark-brown flex flex-col justify-between selection:bg-burnt-orange selection:text-white">
+      <ParticleBackground />
       
       {/* Dynamic Header Navbar banner */}
       <Navbar
