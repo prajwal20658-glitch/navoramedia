@@ -52,4 +52,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #F07A1A;
 }
+/* Make page sections transparent so particle background shows through */
+main > div,
+section {
+  background: transparent !important;
+}
 
