@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ParticleBackground from "./components/ParticleBackground";
+import ParticleBackground from "./components/ParticleBackground.tsx";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AuditFormModal from "./components/AuditFormModal";
