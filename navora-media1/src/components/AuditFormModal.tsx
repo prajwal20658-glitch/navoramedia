@@ -11,7 +11,6 @@ export default function AuditFormModal({ isOpen, onClose }: AuditFormModalProps)
     name: "",
     email: "",
     company: "",
-    website: "",
     spend: "$5,000 - $15,000",
     phone: "",
     challenges: [] as string[]
@@ -171,19 +170,6 @@ export default function AuditFormModal({ isOpen, onClose }: AuditFormModalProps)
                     className="w-full bg-[#1A120E] border border-warm-gray/30 rounded-lg px-4 py-2.5 text-sm text-soft-beige focus:border-[#FF8C2A] focus:outline-none transition-colors"
                   />
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-soft-beige/70 uppercase tracking-wider mb-1.5">
-                    Current Live Website <span className="text-burnt-orange">*</span>
-                  </label>
-                  <input
-                    type="url"
-                    required
-                    value={formData.website}
-                    onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    placeholder="https://mybrand.com"
-                    className="w-full bg-[#1A120E] border border-warm-gray/30 rounded-lg px-4 py-2.5 text-sm text-soft-beige focus:border-[#FF8C2A] focus:outline-none transition-colors"
-                  />
-                </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -290,7 +276,7 @@ export default function AuditFormModal({ isOpen, onClose }: AuditFormModalProps)
                   Audit Configuration Accepted!
                 </h4>
                 <p className="text-sm text-soft-beige/70 max-w-lg mx-auto">
-                  Excellent, <strong className="text-burnt-orange">{formData.name}</strong>. Our lead growth auditor is parsing your domain (<strong className="text-soft-beige">{formData.website}</strong>) for target conversion bottlenecks.
+                  Excellent, <strong className="text-burnt-orange">{formData.name}</strong>. Our lead growth auditor is parsing your submitted details for target conversion bottlenecks.
                 </p>
               </div>
 
