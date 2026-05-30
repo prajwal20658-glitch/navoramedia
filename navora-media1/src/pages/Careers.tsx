@@ -79,6 +79,8 @@ export default function Careers({ onNavigate, openAuditModal }: CareersProps) {
 
   return (
     <div id="careers-page-container" className="pt-24 space-y-20 pb-20">
+      title = "Careers at Navora Media | Join Our Bangalore Team";
+description = "Join Navora Media's team of performance marketers in Bangalore. View open roles in media buying, SEO, and digital strategy.";
       
       {/* HEADER HERO */}
       <section id="careers-hero" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 pt-10">
