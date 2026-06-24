@@ -336,7 +336,7 @@ export default function App() {
       <Footer onNavigate={navigateTo} openAuditModal={() => setIsAuditModalOpen(true)} />
 
       {/* Global lead capturing audit Modal */}
-      <AuditFormModal isOpen={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
+      <AuditFormModal isOpen={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} onNavigate={navigateTo} />
     </div>
   );
 }
