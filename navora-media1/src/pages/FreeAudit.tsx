@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useState } from "react";
-import { ClipboardCheck, Target, ArrowRight, CheckCircle, Sparkles } from "lucide-react";
+import { Sparkles, CheckCircle } from "lucide-react";
 
 interface FreeAuditProps {
   onNavigate: (path: string) => void;
@@ -14,7 +14,6 @@ export default function FreeAudit({ onNavigate, openAuditModal }: FreeAuditProps
     website: "",
     spend: "Within $2,000 - $5,000"
   });
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: any) => {
@@ -41,21 +40,31 @@ export default function FreeAudit({ onNavigate, openAuditModal }: FreeAuditProps
       });
 
       const result = await response.json();
-      if (result.success) {
-        setSubmitted(true);
-      } else {
+      if (!result.success) {
         console.error("Web3Forms submission failed:", result);
-        setSubmitted(true);
       }
     } catch (error) {
       console.error("Web3Forms error:", error);
-      setSubmitted(true);
     } finally {
       setLoading(false);
-      // Save custom data
+
+      // Persist lead locally
       const savedAudits = JSON.parse(localStorage.getItem("navora_audits") || "[]");
-      savedAudits.push({ ...formData, company: "Audit Page", phone: "N/A", challenges: [], date: new Date().toISOString() });
+      savedAudits.push({
+        ...formData,
+        company: "Audit Page",
+        phone: "N/A",
+        challenges: [],
+        date: new Date().toISOString()
+      });
       localStorage.setItem("navora_audits", JSON.stringify(savedAudits));
+
+      // ── Navigate to dedicated Thank You page ──
+      // Passes first name via sessionStorage so ThankYou page can personalise
+      sessionStorage.setItem("navora_lead_name", formData.name);
+      sessionStorage.setItem("navora_lead_email", formData.email);
+      sessionStorage.setItem("navora_lead_website", formData.website);
+      onNavigate("audit-thanks");
     }
   };
 
@@ -77,14 +86,14 @@ export default function FreeAudit({ onNavigate, openAuditModal }: FreeAuditProps
   return (
     <div id="free-audit-landing-container" className="pt-24 space-y-20 pb-20">
       <Helmet>
-  <title>Free Marketing Audit | Navora Media Bangalore</title>
-  <meta name="description" content="Get a free 12-page marketing audit from Navora Media. We analyse your Meta Ads, Google Ads and SEO and deliver actionable insights. No obligation." />
-</Helmet>
-      
+        <title>Free Marketing Audit | Navora Media Bangalore</title>
+        <meta name="description" content="Get a free 12-page marketing audit from Navora Media. We analyse your Meta Ads, Google Ads and SEO and deliver actionable insights. No obligation." />
+      </Helmet>
+
       {/* LANDING TITLE HERO */}
       <section className="relative py-12 max-w-5xl mx-auto px-4 text-center space-y-6">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 bg-burnt-orange/5 rounded-full blur-3xl pointer-events-none" />
-        
+
         <span className="text-xs font-bold uppercase tracking-widest text-[#FF8C2A] bg-burnt-orange/10 px-3 py-1 rounded inline-flex items-center gap-1 font-sans">
           <Sparkles className="w-4.5 h-4.5" /> FREE AUDITING BLUEPRINT
         </span>
@@ -100,7 +109,7 @@ export default function FreeAudit({ onNavigate, openAuditModal }: FreeAuditProps
 
       {/* CORE BENEFITS VS MINI CAPTURE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
+
         {/* Left Side: Detail list */}
         <div className="lg:col-span-7 space-y-8">
           <h2 className="font-serif text-3xl font-bold text-dark-brown">
@@ -128,98 +137,76 @@ export default function FreeAudit({ onNavigate, openAuditModal }: FreeAuditProps
         {/* Right Side: Inline Lead Form */}
         <div className="lg:col-span-12 xl:col-span-5 bg-[#Fbf9f6] p-8 rounded-2xl border border-dark-brown/10 relative overflow-hidden shadow-sm">
           <div className="absolute top-0 right-0 w-24 h-24 bg-[#FF8C2A]/5 rounded-full blur-2xl pointer-events-none" />
-          
-          {!submitted ? (
-            <div className="space-y-6">
-              <div className="space-y-1">
-                <span className="text-[10px] uppercase font-bold text-[#FF8C2A] tracking-wider font-sans">Fast-Track Entry</span>
-                <h3 className="font-serif text-xl font-bold text-dark-brown">Unlock My Diagnostics</h3>
+
+          <div className="space-y-6">
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase font-bold text-[#FF8C2A] tracking-wider font-sans">Fast-Track Entry</span>
+              <h3 className="font-serif text-xl font-bold text-dark-brown">Unlock My Diagnostics</h3>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4 text-xs font-sans">
+              <div>
+                <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Your Name</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  placeholder="E.g. Saurabh Sharma"
+                  className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown focus:outline-none focus:border-burnt-orange"
+                />
               </div>
 
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-4 text-xs font-sans"
-              >
-                <div>
-                  <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Your Name</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="E.g. Saurabh Sharma"
-                    className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown focus:outline-none focus:border-burnt-orange"
-                  />
-                </div>
+              <div>
+                <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Business Email</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="ceo@brand.com"
+                  className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown focus:outline-none focus:border-burnt-orange"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Business Email</label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="ceo@brand.com"
-                    className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown focus:outline-none focus:border-burnt-orange"
-                  />
-                </div>
+              <div>
+                <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Brand URL / Clinic website</label>
+                <input
+                  type="url"
+                  required
+                  value={formData.website}
+                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  placeholder="https://brand.com"
+                  className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown focus:outline-none focus:border-burnt-orange"
+                />
+              </div>
 
-                <div>
-                  <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Brand URL / Clinic website</label>
-                  <input
-                    type="url"
-                    required
-                    value={formData.website}
-                    onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                    placeholder="https://brand.com"
-                    className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown focus:outline-none focus:border-burnt-orange"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Current Ad Spend Tier</label>
-                  <select
-                    value={formData.spend}
-                    onChange={(e) => setFormData({ ...formData, spend: e.target.value })}
-                    className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown text-xs focus:outline-none focus:border-burnt-orange"
-                  >
-                    <option value="<$2,000">Less than $2,000 / month</option>
-                    <option value="Within $2,000 - $5,000">$2,000 - $5,000 / month</option>
-                    <option value="Within $5,000 - $15,000">$5,000 - $15,000 / month</option>
-                    <option value="$15,000+">$15,000+ / month</option>
-                  </select>
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full text-center orange-gradient py-3 rounded text-white uppercase tracking-widest font-bold cursor-pointer font-sans disabled:opacity-50"
+              <div>
+                <label className="block text-dark-brown/70 uppercase tracking-wider mb-1">Current Ad Spend Tier</label>
+                <select
+                  value={formData.spend}
+                  onChange={(e) => setFormData({ ...formData, spend: e.target.value })}
+                  className="w-full bg-white border border-dark-brown/15 rounded px-3 py-2 text-dark-brown text-xs focus:outline-none focus:border-burnt-orange"
                 >
-                  {loading ? "Analysing Assets..." : "Generate Free Custom Audit Report"}
-                </button>
-              </form>
-            </div>
-          ) : (
-            <div className="text-center py-8 space-y-4 font-sans">
-              <div className="w-12 h-12 rounded-full bg-burnt-orange/15 text-burnt-orange flex items-center justify-center mx-auto animate-bounce">
-                <CheckCircle className="w-6 h-6" />
+                  <option value="<$2,000">Less than $2,000 / month</option>
+                  <option value="Within $2,000 - $5,000">$2,000 - $5,000 / month</option>
+                  <option value="Within $5,000 - $15,000">$5,000 - $15,000 / month</option>
+                  <option value="$15,000+">$15,000+ / month</option>
+                </select>
               </div>
-              <h3 className="font-serif text-lg font-bold text-dark-brown">Audit Request Queued!</h3>
-              <p className="text-xs text-dark-brown/70 leading-relaxed">
-                Thank you, <strong>{formData.name}</strong>. Our diagnostic crawl on <strong>{formData.website}</strong> has been safely scheduled. Keep an eye on <strong>{formData.email}</strong> for our 12-page custom visual PDF.
-              </p>
+
               <button
-                onClick={() => setSubmitted(false)}
-                className="text-xs underline text-[#FF8C2A] cursor-pointer"
+                type="submit"
+                disabled={loading}
+                className="w-full text-center orange-gradient py-3 rounded text-white uppercase tracking-widest font-bold cursor-pointer font-sans disabled:opacity-50"
               >
-                Request another report
+                {loading ? "Analysing Assets..." : "Generate Free Custom Audit Report"}
               </button>
-            </div>
-          )}
+            </form>
+          </div>
         </div>
 
       </section>
-
     </div>
   );
 }
