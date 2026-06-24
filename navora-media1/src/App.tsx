@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AuditFormModal from "./components/AuditFormModal";
 
-// Client Pages
+ // Client Pages
 import Home from "./pages/Home";
 import ServicesMain from "./pages/ServicesMain";
 import ServiceDetail from "./pages/ServiceDetail";
