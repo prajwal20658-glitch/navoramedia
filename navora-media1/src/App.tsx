@@ -14,6 +14,7 @@ import BlogMain from "./pages/BlogMain";
 import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 import FreeAudit from "./pages/FreeAudit";
+import ThankYou from "./pages/ThankYou"; // ← NEW
 import FAQPage from "./pages/FAQPage";
 import Careers from "./pages/Careers";
 import Legal from "./pages/Legal";
@@ -192,6 +193,10 @@ export default function App() {
     } else if (currentPath === "audit") {
       title = "Get a Complimentary Diagnostic Website Audit | Navora Media";
       description = "Free expert website performance audit. Comprehensive analysis of your load speeds, Meta pixel syntax, Google Tag matches, and conversion blocks.";
+    } else if (currentPath === "audit-thanks") {
+      // ── NEW: Thank You page — noindex set inside the component itself via Helmet ──
+      title = "Audit Requested — We're On It | Navora Media";
+      description = "Your free performance audit request has been received. Navora Media's growth team will deliver your 12-page diagnostic blueprint within 24 hours.";
     } else if (currentPath === "faq") {
       title = "Performance Marketing FAQ & Process Desk | Navora Media";
       description = "Clear answers regarding our attribution tools, campaign sandbox structures, minimum budgets, and patient-acquisition funnels.";
@@ -280,7 +285,7 @@ export default function App() {
       );
     }
 
-        // Standard static matching switcher
+    // Standard static matching switcher
     switch (currentPath) {
       case "home":
         return <Home onNavigate={navigateTo} openAuditModal={() => setIsAuditModalOpen(true)} />;
@@ -294,6 +299,8 @@ export default function App() {
         return <Contact onNavigate={navigateTo} openAuditModal={() => setIsAuditModalOpen(true)} />;
       case "audit":
         return <FreeAudit onNavigate={navigateTo} openAuditModal={() => setIsAuditModalOpen(true)} />;
+      case "audit-thanks": // ← NEW
+        return <ThankYou onNavigate={navigateTo} openAuditModal={() => setIsAuditModalOpen(true)} />;
       case "faq":
         return <FAQPage onNavigate={navigateTo} openAuditModal={() => setIsAuditModalOpen(true)} />;
       case "careers":
@@ -310,7 +317,7 @@ export default function App() {
   };
 
   return (
-  <div className="min-h-screen text-dark-brown flex flex-col justify-between selection:bg-burnt-orange selection:text-white">
+    <div className="min-h-screen text-dark-brown flex flex-col justify-between selection:bg-burnt-orange selection:text-white">
       <ParticleBackground />
       
       {/* Dynamic Header Navbar banner */}
@@ -330,7 +337,6 @@ export default function App() {
 
       {/* Global lead capturing audit Modal */}
       <AuditFormModal isOpen={isAuditModalOpen} onClose={() => setIsAuditModalOpen(false)} />
-
     </div>
   );
 }
